@@ -8,8 +8,6 @@ spring:
           uri: lb://usermanagement
           predicates:
             - Path=/api/users/**
-          filters:
-            - RewritePath=/usermanagement/(?<segment>.*), /${segment}
   application:
     name: api-gateway
 eureka:
