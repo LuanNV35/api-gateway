@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: docker
+  cloud:
+    gateway:
+      routes:
+        - id: usermanagement
+          uri: lb://usermanagement
+          predicates:
+            - Path=/api/users/**
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
